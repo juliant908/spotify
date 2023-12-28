@@ -2,6 +2,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@public/*": [
+        "public/*"
+      ],
+      "@lib/*": [
+        "src/lib/*"
+      ],
+      "@icons/*": [
+        "src/app/icons/*"
+      ]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

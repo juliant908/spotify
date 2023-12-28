@@ -1,0 +1,16 @@
+<li>
+  <a class="flex gap-4 text-zinc-400 hover:text-zinc-100 items-center py-3 px-5 font-medium trasition duration-300" routerLink="{{href}}">
+    @switch (icon) {
+      @case ('home'){
+        <app-home></app-home>
+      }
+      @case ('search'){
+        <app-search></app-search>
+      }
+      @case ('library'){
+        <app-library></app-library>
+      }
+    }
+    <span>{{slot}}</span>
+  </a>
+</li>
