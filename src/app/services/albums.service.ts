@@ -6,7 +6,7 @@ import { type Playlist } from '@lib/data';
 export class AlbumsService {
   album = signal({} as Playlist);
 
-  emitPlaylist(event: any): void {
-    this.album.update(album => album = event);
+  setAlbum(albumSelected: any): void {
+    this.album.update(album => album = albumSelected);
   }
 }

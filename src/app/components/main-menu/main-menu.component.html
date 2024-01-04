@@ -4,7 +4,7 @@
     <app-greeting></app-greeting>
     <div class="flex flex-wrap mt-6 gap-4">
       @for (playlist of playlists; track playlist.id){
-        <app-playlist-item-card (click)="albumsService.emitPlaylist(playlist)" [playlist]="playlist" href="playlist/{{playlist.id}}"></app-playlist-item-card>
+        <app-playlist-item-card (click)="albumsService.setAlbum(playlist)" [playlist]="playlist" href="playlist/{{playlist.id}}"></app-playlist-item-card>
       }
     </div>
   </div>

@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './slider.component.scss'
 })
 export class SliderComponent implements OnInit{
-  value$: number = 0;
+  value$: number = 100;
   constructor(public playerComponent: PlayerComponent, public playerService: PlayerService) { }
 
   ngOnInit(): void {

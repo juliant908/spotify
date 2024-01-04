@@ -9,7 +9,7 @@
     <ul>
       <app-side-menu-item href="/#" icon="library" slot="Library"></app-side-menu-item>
       @for (playlist of playlists; track playlist.id){
-        <app-side-menu-card (click)="albumsService.emitPlaylist(playlist)" [playlist]="playlist" href="/playlist/{{playlist.id}}"></app-side-menu-card>
+        <app-side-menu-card (click)="albumsService.setAlbum(playlist)" [playlist]="playlist" href="/playlist/{{playlist.id}}"></app-side-menu-card>
       }
     </ul>
   </div>

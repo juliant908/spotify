@@ -23,6 +23,7 @@ export class PageLayoutComponent implements OnInit{
     this.id = this.route.snapshot.paramMap.get('id');
     this.playlist = allPlaylists.find(playlist => playlist.id === this.id) || {} as Playlist;
     this.playlistSongs = songs.filter(song => song.albumId === this.playlist.albumId)
+    this.albumsService.setAlbum(this.playlist);
     this.generateArtistsString();
   }
 
