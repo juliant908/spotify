@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { PlayComponent } from '@icons/play.component';
 import { PauseComponent } from '@icons/pause.component';
 import { PlayerService } from 'src/app/services/player.service.js';
@@ -15,6 +15,7 @@ import { PlayerComponent } from '../player/player.component';
 export class CardPlayButtonComponent  {
   @Input() id = '';
   audio: HTMLAudioElement = {} as HTMLAudioElement;
+  currentMusic = signal(this.playerService.currentMusic());
   constructor(public playerService: PlayerService, public playerComponent: PlayerComponent) {
     this.audio = playerComponent.audio as HTMLAudioElement;
   }
@@ -25,7 +26,8 @@ export class CardPlayButtonComponent  {
       this.audio.pause();
       return;
     }
-
+    const previousSong = this.playerService.currentMusic()?.song;
+    const previousPlaylist = this.playerService.currentMusic()?.playlist;
     GET({params: this.id,request: ''})
       .then(data => data.json())
       .then(res => {
@@ -34,17 +36,16 @@ export class CardPlayButtonComponent  {
           songs: res.songs,
           song: res.songs[0]
         })
-        const currentMusic = this.playerService.currentMusic();
-        this.audio.src = (currentMusic) ? `assets/music/${currentMusic?.playlist?.id}/0${currentMusic?.song?.id}.mp3` : '';
-        if (this.isPlayingPlaylist()){
-          this.audio.pause();
-          this.playerService.setIsPlaying(false);
-        } else{
+        const {song, playlist} = this.playerService.currentMusic();
+        if(song){
+          if(previousSong?.id === song?.id && previousPlaylist?.id === playlist?.id) {
+            this.playerService.setIsPlaying(true);
+            this.audio.play();
+            return;
+          }
+          const src = `assets/music/${playlist?.id}/0${song?.id}.mp3`
+          this.audio.src = src;
           this.audio.play();
-          this.audio.volume = this.playerService.volume();
-          console.log(this.audio.duration)
-          console.log(this.audio)
-
           this.playerService.setIsPlaying(true);
         }
       });

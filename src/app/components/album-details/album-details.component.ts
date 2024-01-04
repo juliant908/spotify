@@ -1,10 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { Playlist } from '@lib/data';
-
+import { MusicTableComponent } from '../music-table/music-table.component';
+import { CardPlayButtonComponent } from '../card-play-button/card-play-button.component';
 @Component({
   selector: 'app-album-details',
   standalone: true,
-  imports: [],
+  imports: [MusicTableComponent, CardPlayButtonComponent],
   templateUrl: './album-details.component.html',
   styleUrl: './album-details.component.scss'
 })

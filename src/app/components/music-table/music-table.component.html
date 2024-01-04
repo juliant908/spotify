@@ -1,0 +1,30 @@
+<table class="table-auto text-left w-full divide-y divide-gray-500/50">
+  <thead>
+    <tr class="text-zinc-400 text-sm font-light">
+      <th class="px-4 py-2 font-light">#</th>
+      <th class="px-4 py-2 font-light">Title</th>
+      <th class="px-4 py-2 font-light">Album</th>
+      <th class="px-4 py-2 font-light"><app-time></app-time></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="h-[16px]"></tr>
+    @for(song of songs; track song.id){
+    <tr class="text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300">
+      <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">{{song.id}}</td>
+      <td class="px-4 py-2 flex gap-3">
+        <picture class="h-12 w-12 flex-none">
+          <img src="{{song.image}}" alt="Cover of {{song.title}} by {{song.artists.join(', ')}}"
+            class="object-cover w-11 h-11">
+        </picture>
+        <div class="flex flex-auto flex-col truncate">
+          <h3 class="text-white text-base font-normal">{{song.title}}</h3>
+          <span class="text-xs text-gray-400">{{song.artists.join(', ')}}</span>
+        </div>
+      </td>
+      <td class="px-4 py-2">{{song.album}}</td>
+      <td class="px-4 py-2 rounded-tr-lg rounded-br-lg">{{song.duration}}</td>
+    </tr>
+    }
+  </tbody>
+</table>
