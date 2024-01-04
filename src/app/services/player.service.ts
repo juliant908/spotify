@@ -18,7 +18,6 @@ export class PlayerService {
 
   setCurrentMusic(selectedMusic: any): void {
     this.currentMusic.update((music: any) => music = selectedMusic);
-    console.log(selectedMusic.song);
     this.currentSong.update((song: any) => song = selectedMusic.song)
   }
 

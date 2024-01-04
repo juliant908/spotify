@@ -1,14 +1,15 @@
 import { Component, Input } from '@angular/core';
 import { TimeComponent } from '@icons/time.component';
-import { type Song, allPlaylists, songs } from '@lib/data';
+import { type Song, songs } from '@lib/data';
 import { PlayerService } from 'src/app/services/player.service';
 import { PlayerComponent } from '../player/player.component';
 import { GET } from 'src/api/get-info-playlist.json';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-music-table',
   standalone: true,
-  imports: [TimeComponent],
+  imports: [TimeComponent, NgClass],
   providers: [PlayerComponent],
   templateUrl: './music-table.component.html',
   styleUrl: './music-table.component.scss'
@@ -42,8 +43,9 @@ export class MusicTableComponent {
           });
         });
     }
-
   }
 
-
+  setActiveState(songId: number): boolean {
+    return this.playerService.currentMusic().song.id === songId && Number(this.playerService.currentMusic().playlist.id) === this.playerService.currentMusic().song.albumId
+  }
 }
