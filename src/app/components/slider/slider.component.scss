@@ -1,16 +1,23 @@
-::ng-deep .mdc-slider__track--active_fill{
+::ng-deep .mdc-slider__track--active_fill {
   border-color: white !important;
 }
 
-::ng-deep .mdc-slider__track--inactive{
-  border-color: rgb(39,39,42) !important;
+::ng-deep .mdc-slider__track--inactive {
+  border-color: rgb(39, 39, 42) !important;
 }
 
-::ng-deep .mdc-slider__thumb-knob{
+::ng-deep .mdc-slider__thumb-knob {
   border-color: white !important;
   background-color: white !important;
 }
 
-::ng-deep .mdc-slider__thumb--with-indicator, .mdc-slider__thumb--focused {
+::ng-deep .mdc-slider__thumb--with-indicator,
+.mdc-slider__thumb--focused {
   background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+::ng-deep .mat-ripple {
+  * {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
 }
