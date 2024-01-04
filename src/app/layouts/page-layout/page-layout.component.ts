@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PlaylistItemCardComponent } from 'src/app/components/playlist-item-card/playlist-item-card.component';
 import { allPlaylists, songs, type Playlist } from '@lib/data';
+import { AlbumsService } from 'src/app/services/albums.service';
+import { AlbumDetailsComponent } from 'src/app/components/album-details/album-details.component';
 @Component({
   selector: 'app-page-layout',
   standalone: true,
-  imports: [PlaylistItemCardComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [PlaylistItemCardComponent, AlbumDetailsComponent],
   templateUrl: './page-layout.component.html',
   styleUrl: './page-layout.component.scss'
 })
@@ -14,7 +17,7 @@ export class PageLayoutComponent implements OnInit{
   id: string | null = '';
   playlistSongs: any;
   artistsString = '';
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, public albumsService: AlbumsService ) {
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -23,7 +26,9 @@ export class PageLayoutComponent implements OnInit{
     this.generateArtistsString();
   }
 
-  generateArtistsString() {
-    this.artistsString = this.playlist?.artists?.join(', ');
+  generateArtistsString(): void {
+    if(this.playlist.artists){
+      this.artistsString = this.playlist?.artists?.join(', ');
+    }
   }
 }

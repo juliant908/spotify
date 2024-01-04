@@ -1,0 +1,7 @@
+<button (click)="handleClick()" class="card-play-button rounded-full bg-green-500 p-3">
+  @if(isPlayingPlaylist()){
+    <app-pause></app-pause>
+  }@else{
+    <app-play></app-play>
+  }
+</button>

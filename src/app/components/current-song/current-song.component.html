@@ -1,0 +1,13 @@
+<div class="flex items-center relative overflow-hidden gap-5 min-w-[180px]">
+  <picture class="size-16 bg-zinc-800 rounded-md shadow-lg overflow-hidden">
+    <img src="{{image}}" alt="{{title}}">
+  </picture>
+  <div [ngClass]="(title && artists) ? '' : 'invisible'">
+    <h3 class="font-semibold block text-sm">
+      {{title}}
+    </h3>
+    <span class="text-xs opacity-80">
+      {{artists?.join(', ')}}
+    </span>
+  </div>
+</div>

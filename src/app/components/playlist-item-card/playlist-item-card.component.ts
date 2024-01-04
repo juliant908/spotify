@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { type Playlist } from '@lib/data';
-
+import { CardPlayButtonComponent } from '../card-play-button/card-play-button.component';
 @Component({
   selector: 'app-playlist-item-card',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CardPlayButtonComponent],
   templateUrl: './playlist-item-card.component.html',
   styleUrl: './playlist-item-card.component.scss'
 })

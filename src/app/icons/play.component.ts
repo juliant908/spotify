@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-<svg viewBox="0 0 24 24" class="h-8 w-8" fill="currentColor">
+<svg viewBox="0 0 24 24" class="size-6" fill="currentColor">
   <path fill="currentColor" d="M8 5.14v14l11-7-11-7z"></path>
 </svg>
   `,

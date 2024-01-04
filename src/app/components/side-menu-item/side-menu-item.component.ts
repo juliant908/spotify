@@ -11,6 +11,11 @@ import { LibraryComponent } from '@icons/library.component';
   styleUrl: './side-menu-item.component.scss',
 })
 export class SideMenuItemComponent {
+  ICONS = Object.freeze({
+      HOME: 'home',
+      SEARCH: 'search',
+      LIBRARY: 'library',
+  });
   @Input() icon: string = '';
   @Input() href: string = '';
   @Input() slot: string = '';

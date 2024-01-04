@@ -1,0 +1,17 @@
+<div class="w-[600px] justify-center items-center flex text-xs">
+  <span class="opacity-50">{{formatTime(audio?.currentTime) || '0:00'}}</span>
+  <div class="w-full mx-2">
+    <mat-slider
+      [min]="0"
+      [max]="audio?.duration"
+      [disabled]="audio?.src === ''"
+    >
+      <input
+        [value]="audio?.currentTime"
+        [(ngModel)]="songPart"
+        (ngModelChange)="songPartChange($event)"
+        matSliderThumb>
+    </mat-slider>
+  </div>
+  <span class="opacity-50">{{audio?.duration ? formatTime(audio?.duration) : '0:00'}}</span>
+</div>

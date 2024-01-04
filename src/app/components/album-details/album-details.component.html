@@ -1,0 +1,32 @@
+<header class="flex flex-row gap-8 px-6">
+  <picture class="aspect-square h-52 w-52 flex-none">
+    <img src="{{playlist.cover}}" alt="Cover of {{playlist.title}} by {{artistsString}}"
+      class="object-cover w-full h-full rounded-md">
+  </picture>
+
+  <div class="flex flex-col justify-between">
+    <h2 class="flex flex-1 items-end">Playlist</h2>
+    <div>
+      <h1 class="text-5xl font-bold block text-white">
+        {{playlist.title}}
+        <span></span>
+      </h1>
+    </div>
+
+    <div class="flex-1 flex items-end">
+      <div class="text-sm text-gray-300 font-normal">
+        <div>
+          <span>{{playlist.artists.join(", ") || ''}}</span>
+        </div>
+        <p class="mt-1">
+          <span class="text-white">{{playlistSongs.length}} canciones</span>,
+          3 h aproximadamente
+        </p>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="relative z-10 px-6 pt-10">
+  <!-- Greeting -->
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-[1]"></div>
