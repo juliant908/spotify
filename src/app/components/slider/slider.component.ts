@@ -12,11 +12,12 @@ import { FormsModule } from '@angular/forms';
 })
 export class SliderComponent implements OnInit{
   value$: number = 100;
+  volumeValue: number = 1;
   constructor(public playerComponent: PlayerComponent, public playerService: PlayerService) { }
 
   ngOnInit(): void {
-    this.playerService.setVolume(this.value$);
-    (this.playerComponent.audio) ? this.playerComponent.audio.volume = this.value$ : '';
+    this.playerService.setVolume(this.volumeValue);
+    (this.playerComponent.audio) ? this.playerComponent.audio.volume = this.volumeValue : '';
   }
   volumeChange(volume: number){
     const newVolume = volume;

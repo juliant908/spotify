@@ -4,6 +4,7 @@ import { PlaylistItemCardComponent } from 'src/app/components/playlist-item-card
 import { allPlaylists, songs, type Playlist } from '@lib/data';
 import { AlbumsService } from 'src/app/services/albums.service';
 import { AlbumDetailsComponent } from 'src/app/components/album-details/album-details.component';
+import { PlayerService } from 'src/app/services/player.service';
 @Component({
   selector: 'app-page-layout',
   standalone: true,
@@ -17,12 +18,17 @@ export class PageLayoutComponent implements OnInit{
   id: string | null = '';
   playlistSongs: any;
   artistsString = '';
-  constructor(private route: ActivatedRoute, public albumsService: AlbumsService ) {
+  constructor(private route: ActivatedRoute, public albumsService: AlbumsService, public playerService: PlayerService ) {
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.playlist = allPlaylists.find(playlist => playlist.id === this.id) || {} as Playlist;
     this.playlistSongs = songs.filter(song => song.albumId === this.playlist.albumId)
+    // this.playerService.setCurrentMusic({
+    //   playlist: this.playlist,
+    //   songs: this.playlistSongs,
+    //   song: null
+    // })
     this.albumsService.setAlbum(this.playlist);
     this.generateArtistsString();
   }

@@ -35,5 +35,7 @@
 <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/80 -z-[1]"></div>
 
 <section class="p-4">
-  <app-music-table [songs]="playlistSongs"></app-music-table>
+  @if(playlist.id){
+    <app-music-table [playlistId]="playlist.id" [songs]="playlistSongs"></app-music-table>
+  }
 </section>

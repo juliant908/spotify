@@ -1,5 +1,5 @@
 <div class="flex flex-row justify-between w-full px-4 z-50 pt-2">
-  <app-current-song [image]="playerService.currentMusic().song.image" [title]="playerService.currentMusic().song.title" [artists]="playerService.currentMusic().song.artists"></app-current-song>
+  <app-current-song [image]="playerService.currentSong().image" [title]="playerService.currentSong().title" [artists]="playerService.currentSong().artists"></app-current-song>
   <div class="grid place-content-center gap-4 flex-1">
     <div class="flex flex-col justify-center items-center">
       <button class="bg-white rounded-full p-2 text-black" (click)="handleClick()">

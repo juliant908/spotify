@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <tr class="h-[16px]"></tr>
-    @for(song of songs; track song.id){
+    @for(song of playerService.currentMusic().songs; track song.id){
     <tr class="text-gray-300 text-sm font-light hover:bg-white/10 overflow-hidden transition duration-300">
       <td class="px-4 py-2 rounded-tl-lg rounded-bl-lg w-5">{{song.id}}</td>
       <td class="px-4 py-2 flex gap-3">
@@ -18,7 +18,7 @@
             class="object-cover w-11 h-11">
         </picture>
         <div class="flex flex-auto flex-col truncate">
-          <h3 class="text-white text-base font-normal">{{song.title}}</h3>
+          <h3 (click)="setSong(song.id)" class="text-white text-base font-normal hover:underline transition cursor-pointer">{{song.title}}</h3>
           <span class="text-xs text-gray-400">{{song.artists.join(', ')}}</span>
         </div>
       </td>
