@@ -1,7 +1,7 @@
 import { Component, Input, signal } from '@angular/core';
 import { PlayComponent } from '@icons/play.component';
 import { PauseComponent } from '@icons/pause.component';
-import { PlayerService } from 'src/app/services/player.service.js';
+import { PlayerService } from 'src/app/services/player.service';
 import { GET } from 'src/api/get-info-playlist.json';
 import { PlayerComponent } from '../player/player.component';
 @Component({

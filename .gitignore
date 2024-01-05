@@ -5,6 +5,7 @@ package-lock.json
 /tmp
 /out-tsc
 /bazel-out
+/coverage
 
 # Node
 /node_modules

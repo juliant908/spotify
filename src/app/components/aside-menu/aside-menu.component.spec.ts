@@ -11,7 +11,7 @@ describe('AsideMenuComponent', () => {
       imports: [AsideMenuComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(AsideMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -19,5 +19,9 @@ describe('AsideMenuComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should setAlbumAndPlaylist', () => {
+    component.setAlbumAndSongs({ id: 1 });
   });
 });

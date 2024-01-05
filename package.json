@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test",
+    "test": "ng test --browsers=Chrome --code-coverage",
+    "test-dev": "ng test --browsers ChromeHeadlessNoSandbox --watch=false --code-coverage",
     "serve:ssr:spotify": "node dist/spotify/server/server.mjs"
   },
   "private": true,
@@ -43,6 +44,7 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "karma-requirejs": "^1.1.0",
     "postcss": "^8.4.32",
     "tailwindcss": "^3.4.0",
     "typescript": "~5.2.2"
