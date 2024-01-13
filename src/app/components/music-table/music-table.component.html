@@ -18,7 +18,7 @@
             class="object-cover w-11 h-11">
         </picture>
         <div class="flex flex-auto flex-col truncate">
-          <h3 [ngClass]="(setActiveState(song.id)) ? 'text-green-400' : ''" (click)="setSong(song.id)" class="text-white text-base font-normal hover:underline transition cursor-pointer">{{song.title}}</h3>
+          <h3 [ngClass]="(setActiveState(song.id)) ? 'text-green-400' : 'text-white'" (click)="setSong(song.id)" class="text-base font-normal hover:underline transition cursor-pointer">{{song.title}}</h3>
           <span class="text-xs text-gray-400">{{song.artists.join(', ')}}</span>
         </div>
       </td>
